@@ -755,4 +755,763 @@ section {
     line-height: 1.8;
     font-size: var(--p-font);
     margin: 1rem 0;
+}/* Variáveis de cor e fonte */
+:root {
+    --bg-color: #1a1a1a;
+    --second-bg-color: #2d2d2d;
+    --text-color: #f8f8f8;
+    --second-color: #cccccc;
+    --main-color: #6a5acd;
+    --big-font: 5rem;
+    --h2-font: 3rem;
+    --p-font: 1.1rem;
+    --p-small-font: 0.9rem;
 }
+
+/* Estilos globais e reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+
+/* Estilo da barra de rolagem para navegadores Webkit */
+body::-webkit-scrollbar {
+    width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: var(--main-color);
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Header */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bg-color); /* Fundo sempre visível */
+    padding: 22px 15%;
+    border-bottom: 1px solid transparent;
+    transition: all .45s ease;
+}
+
+header.sticky {
+    padding: 12px 15%;
+    border-bottom: 1px solid #ffffff1a;
+    height: 10vh;
+}
+
+.logo {
+    color: var(--text-color);
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+span {
+    color: var(--main-color);
+}
+
+.navlist {
+    display: flex;
+}
+
+.navlist a {
+    color: var(--second-color);
+    font-size: 17px;
+    font-weight: 500;
+    margin: 0 25px;
+    transition: all .45s ease;
+}
+
+.navlist a:hover {
+    color: var(--main-color);
+}
+
+.navlist a.active {
+    color: var(--main-color);
+}
+
+#menu-icon {
+    font-size: 35px;
+    color: var(--text-color);
+    z-index: 10001;
+    cursor: pointer;
+    margin-left: 25px;
+    display: none; /* Escondido por padrão, visível em mobile */
+}
+
+section {
+    padding: 160px 15% 120px;
+}
+
+/* Home Section */
+.home {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url(img/background.jpg); /* Verifique o caminho da imagem */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.slide {
+    margin-bottom: 20px;
+}
+
+.one {
+    display: inline-block;
+    margin-right: 15px;
+    height: 32px;
+    padding: 0 15px;
+    line-height: 32px;
+    font-size: 20px;
+    font-weight: 500;
+    border-radius: 5px;
+    background: var(--main-color);
+    color: var(--text-color);
+}
+
+.two {
+    display: inline-block;
+    color: var(--second-color);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.home-text h1 {
+    font-size: var(--big-font);
+    font-weight: 700;
+    color: var(--text-color);
+    line-height: 1.1;
+    margin: 0 0 8px;
+}
+
+.home-text h3 {
+    color: var(--text-color);
+    margin: 0 0 35px;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.home-text p {
+    color: var(--second-color);
+    font-size: var(--p-font);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* Botões da seção Home */
+.btn {
+    padding: 12px 20px;
+    background: var(--main-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    margin-right: 15px;
+    transition: transform 0.3s ease; /* Adicionado transição para hover */
+}
+
+.btn:hover {
+    transform: scale(0.9);
+}
+
+.btn2 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 5px 0;
+    line-height: 1;
+    height: 55px;
+    vertical-align: middle;
+    margin: 0; /* Removido margin-left redundante */
+    padding: 5px 10px;
+}
+
+.btn2 span i {
+    height: 55px;
+    width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    border-radius: 50%;
+    margin: 0;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    transition: transform 0.3s ease; /* Adicionado transição para hover */
+}
+
+.btn2 span i:hover {
+    transform: scale(0.9);
+}
+
+/* Links em parágrafos */
+.link {
+    color: rgb(0, 0, 0);
+    transition: .5s;
+}
+
+.link:hover {
+    transition: .5s;
+    color: #e4ab32;
+}
+
+/* Redes Sociais */
+.socials {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: 5em;
+}
+
+.btn-socials {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-right: 15px;
+}
+
+.btn-socials:last-child { /* Melhor usar last-child para o último item */
+    margin-right: 0px;
+}
+
+.btn-socials span i {
+    height: 55px;
+    width: 55px;
+    background: var(--main-color);
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    border-radius: 50%;
+    transition: all .45s ease;
+}
+
+.btn-socials span i:hover {
+    transform: scale(0.9);
+}
+
+/* About Section */
+.about {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1.7rem;
+}
+
+.about-img img {
+    width: 100%;
+    max-width: 430px;
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 10px;
+    box-shadow: var(--main-color) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: block;
+    margin: 0 auto;
+}
+
+.about-text h2 {
+    font-size: var(--h2-font);
+    line-height: 1;
+}
+
+.about-text h4 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 15px 0 30px;
+}
+
+.about-text p {
+    font-size: var(--p-font);
+    color: var(--second-color);
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+#conhecimento {
+    color: var(--text-color); /* Usando var(--text-color) para consistência */
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.about-img {
+    overflow: visible; /* Mantido conforme original */
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+}
+
+
+/* Main Text (para títulos de seção) */
+.main-text {
+    text-align: center;
+}
+
+/* Nota: Os p´s dentro de main-text estão com font-size e margin muito pequenos no original.
+   Se a intenção é que sejam visíveis, ajuste os valores. */
+.main-text p {
+    color: var(--second-color);
+    font-size: 1px; 
+    margin-bottom: 0.7px; 
+}
+
+.main-text h2 {
+    font-size: var(--h2-font);
+    line-height: 1;
+}
+
+/* Experience Section - Mantendo o posicionamento e altura originais */
+.experience {
+    display: flex;
+    flex-direction: column; /* Para empilhar h2, h3 e .boxd verticalmente */
+    margin: 0;
+    padding: 0px; /* Padding removido para seções individuais */
+    width: 100%;
+    height: 627px; /* Altura fixa original mantida */
+    background-color: var(--second-bg-color);
+    justify-content: center;
+    align-items: center;
+}
+
+#ex2 {
+    display: flex;
+    position: relative; /* Mantido conforme original */
+    margin: 0;
+    padding: 0;
+    top: -140px; /* Posição vertical original mantida */
+    font-size: 40px;
+}
+
+#ex3 {
+    position: relative; /* Mantido conforme original */
+    margin: 0;
+    padding: 0;
+    right: 465px; /* Posição horizontal original mantida */
+    top: -90px;
+}
+
+/* Estilos para o .boxd (contêiner da imagem/overlay do projeto) - Posição original mantida */
+.boxd {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    margin: 20px;
+    background-color: #9b9b9b;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 400px; /* Posição horizontal original mantida */
+    margin-top: -80px; /* Adicionado para ajustar o espaçamento após h3, se necessário */
+}
+
+/* Estilos para a imagem dentro do .boxd */
+#imgtaskp {
+    width: 100%;
+    height: 100%; /* Ajustado para 100% para preencher o boxd */
+    object-fit: cover;
+    transition: filter 0.3s ease-in-out;
+}
+
+/* Classe para aplicar o blur na imagem */
+#imgtaskp.blurred {
+    filter: blur(8px);
+}
+
+/* Estilos do overlay de texto (para o efeito hover) */
+.image-overlay {
+    position: absolute;
+    top: 100%; /* Inicia o overlay completamente abaixo do contêiner */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    transition: top 0.3s ease-in-out;
+}
+
+/* Classe que move o overlay para cima */
+.image-overlay.show-text {
+    top: 0;
+}
+
+/* Estilo do texto dentro do overlay */
+.image-overlay p {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+    padding: 0 0.5rem;
+}
+
+/* BOTÃO VOLTAR AO TOPO */
+#top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: var(--main-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    cursor: pointer;
+    opacity: 0; /* Escondido por padrão */
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 12px rgba(106, 90, 205, 0.25);
+}
+
+#top.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#top:hover {
+    background: #5d4cb3;
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 16px rgba(106, 90, 205, 0.35);
+}
+
+#top i {
+    color: var(--text-color);
+    font-size: 24px;
+    transition: transform 0.3s ease;
+}
+
+#top:hover i {
+    transform: translateY(-2px);
+}
+
+#top:active {
+    transform: scale(0.95);
+}
+
+
+/* Media Queries */
+@media (max-width: 1480px) {
+    header {
+        padding: 12px 2.5%;
+        transition: .1s;
+    }
+
+    header.sticky {
+        padding: 10px 2.5%;
+        transition: .1s;
+    }
+
+    section {
+        padding: 110px 3% 60px;
+    }
+}
+
+@media (max-width: 1100px) {
+    :root {
+        --big-font: 4rem;
+        --h2-font: 2rem;
+        --p-font: 0.9rem;
+        transition: .1s;
+    }
+
+    .home-text h3 {
+        font-size: 1.6rem;
+    }
+
+    .home {
+        height: 87vh;
+    }
+
+    .about-text h4 {
+        font-size: var(--p-small-font)
+    }
+}
+
+@media (max-width: 920px) {
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .about-img {
+        display: inline-flex;
+    }
+
+    .about-text {
+        text-align: center;
+        gap: 0.7rem;
+    }
+}
+
+@media (max-width: 800px) {
+    #menu-icon {
+        display: block;
+    }
+
+    .navlist {
+        position: absolute;
+        top: -1000px;
+        right: 0;
+        left: 0;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-color);
+        text-align: center;
+        justify-content: center;
+        transition: all .45s ease;
+    }
+
+    .navlist a {
+        display: block;
+        margin: 17px;
+        font-size: 20px;
+        transition: all .45s ease;
+        color: var(--text-color);
+    }
+
+    .navlist a:hover {
+        color: var(--main-color);
+    }
+
+    .navlist.open {
+        top: 100%
+    }
+
+    .home {
+        position: relative;
+        height: 87vh;
+        width: 100%;
+        background-image: url(img/background.jpg);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .btn {
+        font-size: 0.7rem;
+    }
+
+    .text-box {
+        width: 100%;
+    }
+
+    .container img {
+        display: none;
+    }
+
+    .home {
+        height: 100vh;
+    }
+
+    /* Ajustes mobile para o botão voltar ao topo */
+    #top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    #top i {
+        font-size: 20px;
+    }
+
+    #top.show {
+        opacity: 0.9;
+    }
+
+    #top:hover {
+        transform: none;
+    }
+
+    .home-text p {
+        color: var(--second-color);
+        font-size: var(--p-font);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .link {
+        color: rgb(0, 0, 0);
+        transition: .5s;
+    }
+
+    .link:hover {
+        transition: .5s;
+        color: #e4ab32;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-img img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Container dos botões (ajustes finos) */
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 70px;
+}
+
+/* Botão "Diga Ola" (btn) */
+.btn {
+    padding: 12px 20px;
+    background: var(--main-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    margin-right: 15px;
+}
+
+/* Botão "Veja meu trabalho" (btn2) */
+.btn2 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 5px 0;
+    line-height: 1;
+    height: 55px;
+    vertical-align: middle;
+    margin: 0;
+    margin-left: 0;
+    padding: 5px 10px;
+}
+
+/* Ícone do btn2 (ajuste fino) */
+.btn2 span i {
+    height: 55px;
+    width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    border-radius: 50%;
+    margin: 0;
+    background-color: var(--main-color);
+    color: var(--text-color);
+}
+
+@media (max-width: 800px) {
+    .socials {
+        margin-top: 3em;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 15px;
+    }
+
+    .btn-socials {
+        margin-right: 0 !important;
+    }
+
+    .btn-socials span i {
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 25px !important;
+    }
+}
+
+/* Timeline (se não for usada, pode ser removida) */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    top: 32px;
+    margin: 2rem;
+}
+
+.text-box {
+    padding: 20px 20px;
+    background: var(--bg-color);
+    border-radius: 10px;
+    color: var(--text-color);
+    width: 60vw;
+}
+
+.text-box h5 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.text-box small {
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.text-box p {
+    letter-spacing: 1px;
+    line-height: 1.8;
+    font-size: var(--p-font);
+    margin: 1rem 0;
+}
+
