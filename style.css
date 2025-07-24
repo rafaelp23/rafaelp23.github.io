@@ -1,13 +1,4 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    text-decoration: none;
-    list-style: none;
-    scroll-behavior: smooth;
-}
-
+/* Variáveis de cor e fonte */
 :root {
     --bg-color: #1a1a1a;
     --second-bg-color: #2d2d2d;
@@ -20,6 +11,18 @@
     --p-small-font: 0.9rem;
 }
 
+/* Estilos globais e reset */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+
+/* Estilo da barra de rolagem para navegadores Webkit */
 body::-webkit-scrollbar {
     width: 12px;
 }
@@ -34,6 +37,7 @@ body {
     color: var(--text-color);
 }
 
+/* Header */
 header {
     position: fixed;
     width: 100%;
@@ -43,11 +47,16 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: transparent;
+    background: var(--bg-color); /* Fundo sempre visível */
     padding: 22px 15%;
     border-bottom: 1px solid transparent;
     transition: all .45s ease;
-    background-color: var(--bg-color);
+}
+
+header.sticky {
+    padding: 12px 15%;
+    border-bottom: 1px solid #ffffff1a;
+    height: 10vh;
 }
 
 .logo {
@@ -87,18 +96,19 @@ span {
     z-index: 10001;
     cursor: pointer;
     margin-left: 25px;
-    display: none;
+    display: none; /* Escondido por padrão, visível em mobile */
 }
 
 section {
     padding: 160px 15% 120px;
 }
 
+/* Home Section */
 .home {
     position: relative;
     height: 100vh;
     width: 100%;
-    background-image: url(../img/background.jpg);
+    background-image: url(img/background.jpg); /* Verifique o caminho da imagem */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -154,6 +164,59 @@ section {
     align-items: center;
 }
 
+/* Botões da seção Home */
+.btn {
+    padding: 12px 20px;
+    background: var(--main-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    margin-right: 15px;
+    transition: transform 0.3s ease; /* Adicionado transição para hover */
+}
+
+.btn:hover {
+    transform: scale(0.9);
+}
+
+.btn2 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 5px 0;
+    line-height: 1;
+    height: 55px;
+    vertical-align: middle;
+    margin: 0; /* Removido margin-left redundante */
+    padding: 5px 10px;
+}
+
+.btn2 span i {
+    height: 55px;
+    width: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    border-radius: 50%;
+    margin: 0;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    transition: transform 0.3s ease; /* Adicionado transição para hover */
+}
+
+.btn2 span i:hover {
+    transform: scale(0.9);
+}
+
+/* Links em parágrafos */
 .link {
     color: rgb(0, 0, 0);
     transition: .5s;
@@ -163,64 +226,8 @@ section {
     transition: .5s;
     color: #e4ab32;
 }
-/*
-.button {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    margin-top: 70px;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-/*
-.btn {
-    display: inline-block;
-    padding: 12px 20px;
-    background-color: var(--main-color);
-    border-radius: 5px;
-    color: var(--text-color);
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-    font-weight: 600;
-    transition: all .45s ease;
-    white-space: nowrap;
-    
-} */
 
-.btn:hover {
-    transform: scale(0.9);
-}
-/*
-.btn2 {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-color);
-    white-space: nowrap;
-    gap: 15px;
-}
-
-.btn2 span i {
-    height: 55px;
-    width: 55px;
-    background: var(--main-color);
-    color: var(--text-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 35px;
-    border-radius: 50%;
-    margin-right: 15px;
-    transition: all .45s ease;
-}*/
-
-.btn2 span i:hover {
-    transform: scale(0.9);
-}
-
+/* Redes Sociais */
 .socials {
     display: flex;
     align-items: center;
@@ -238,7 +245,7 @@ section {
     margin-right: 15px;
 }
 
-.btn-socials:nth-child(6) {
+.btn-socials:last-child { /* Melhor usar last-child para o último item */
     margin-right: 0px;
 }
 
@@ -259,13 +266,7 @@ section {
     transform: scale(0.9);
 }
 
-header.sticky {
-    background: var(--bg-color);
-    border-bottom: 1px solid #ffffff1a;
-    padding: 12px 15%;
-    height: 10vh;
-}
-
+/* About Section */
 .about {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -304,14 +305,29 @@ header.sticky {
     margin-bottom: 0.5rem;
 }
 
+#conhecimento {
+    color: var(--text-color); /* Usando var(--text-color) para consistência */
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.about-img {
+    overflow: visible; /* Mantido conforme original */
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+}
+
+
+/* Main Text (para títulos de seção) */
 .main-text {
     text-align: center;
 }
 
 .main-text p {
     color: var(--second-color);
-    font-size: 15px;
-    margin-bottom: 15px;
+    font-size: 1px; /* Parece um erro, pois 1px é muito pequeno. Ajuste se necessário. */
+    margin-bottom: 0.7px; /* Parece um erro, muito pequeno. Ajuste se necessário. */
 }
 
 .main-text h2 {
@@ -319,7 +335,99 @@ header.sticky {
     line-height: 1;
 }
 
-/* BOTÃO VOLTAR AO TOPO - VERSÃO OTIMIZADA */
+/* Estilos específicos para a seção Experiências/Projetos */
+.experience {
+    display: flex;
+    flex-direction: column; /* Organiza os elementos em coluna */
+    margin: 0;
+    padding: 160px 15% 120px; /* Usa o padding da seção */
+    width: 100%;
+    /* height: 627px; Removido altura fixa para melhor responsividade */
+    background-color: var(--second-bg-color);
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Centraliza o texto */
+}
+
+#ex2 {
+    /* display: flex; Removido, pois main-text já define display */
+    /* position: relative; Removido, não parece necessário aqui */
+    margin: 0;
+    padding: 0;
+    top: -120px; /* Ajuste a posição se necessário, pode ser problematico */
+    font-size: 40px;
+}
+
+#ex3 {
+    /* display: flex; Removido */
+    /* position: relative; Removido */
+    margin: 0;
+    padding: 0;
+    right: 320px; /* Ajuste a posição se necessário, pode ser problematico */
+}
+
+/* Estilos para o .boxd (contêiner da imagem/overlay do projeto) */
+.boxd {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    margin: 20px;
+    background-color: #9b9b9b;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* right: 400px; Removido: esta posição fixa pode quebrar o layout */
+    margin-top: -80px; /* Ajuste para compensar o 'top' de #ex2/ex3, se necessário */
+}
+
+/* Estilos para a imagem dentro do .boxd */
+#imgtaskp {
+    width: 100%;
+    height: 100%; /* Ajustado para 100% para preencher o boxd */
+    object-fit: cover;
+    transition: filter 0.3s ease-in-out;
+}
+
+/* Classe para aplicar o blur na imagem */
+#imgtaskp.blurred {
+    filter: blur(8px);
+}
+
+/* Estilos do overlay de texto (para o efeito hover) */
+.image-overlay {
+    position: absolute;
+    top: 100%; /* Inicia o overlay completamente abaixo do contêiner */
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    transition: top 0.3s ease-in-out;
+}
+
+/* Classe que move o overlay para cima */
+.image-overlay.show-text {
+    top: 0;
+}
+
+/* Estilo do texto dentro do overlay */
+.image-overlay p {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
+    padding: 0 0.5rem;
+}
+
+/* BOTÃO VOLTAR AO TOPO */
 #top {
     position: fixed;
     bottom: 30px;
@@ -333,7 +441,7 @@ header.sticky {
     align-items: center;
     z-index: 999;
     cursor: pointer;
-    opacity: 0;
+    opacity: 0; /* Escondido por padrão */
     transform: translateY(20px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 4px 12px rgba(106, 90, 205, 0.25);
@@ -364,70 +472,8 @@ header.sticky {
     transform: scale(0.95);
 }
 
-.experience {
-    background-color: var(--second-bg-color);
-}
 
-.timeline {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 3rem 0;
-}
-
-.container img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    top: 32px;
-    margin: 2rem;
-}
-
-.text-box {
-    padding: 20px 20px;
-    background: var(--bg-color);
-    border-radius: 10px;
-    color: var(--text-color);
-    width: 60vw;
-}
-
-.text-box h5 {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 15px;
-}
-
-.text-box small {
-    font-size: 14px;
-    font-weight: 800;
-}
-
-.text-box p {
-    letter-spacing: 1px;
-    line-height: 1.8;
-    font-size: var(--p-font);
-    margin: 1rem 0;
-}
-
-#conhecimento {
-    color: #f8f8f8;
-    font-size: 24px;
-    font-weight: 600;
-}
-
-.about-img {
-    overflow: visible;
-    width: 100%;
-    max-width: 430px;
-    margin: 0 auto;
-}
-
+/* Media Queries */
 @media (max-width: 1480px) {
     header {
         padding: 12px 2.5%;
@@ -484,7 +530,7 @@ header.sticky {
     #menu-icon {
         display: block;
     }
-    
+
     .navlist {
         position: absolute;
         top: -1000px;
@@ -519,7 +565,7 @@ header.sticky {
         position: relative;
         height: 87vh;
         width: 100%;
-        background-image: url(../img/background.jpg);
+        background-image: url(img/background.jpg);
         background-size: cover;
         background-position: center;
         display: flex;
@@ -529,17 +575,8 @@ header.sticky {
     }
 
     .btn {
-        font-size:  0.7rem;
+        font-size: 0.7rem;
     }
-
-    /*.socials {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        gap: 20px;
-        padding: 0;
-        margin: 0;
-    }*/
 
     .text-box {
         width: 100%;
@@ -553,22 +590,22 @@ header.sticky {
         height: 100vh;
     }
 
-    /* AJUSTES MOBILE PARA O BOTÃO VOLTAR AO TOPO */
+    /* Ajustes mobile para o botão voltar ao topo */
     #top {
         width: 45px;
         height: 45px;
         bottom: 20px;
         right: 20px;
     }
-    
+
     #top i {
         font-size: 20px;
     }
-    
+
     #top.show {
         opacity: 0.9;
     }
-    
+
     #top:hover {
         transform: none;
     }
@@ -603,8 +640,8 @@ header.sticky {
 /* Container dos botões (ajustes finos) */
 .button {
     display: flex;
-    align-items: center;  /* Alinha verticalmente no centro */
-    justify-content: flex-start;  /* Alinha à esquerda */
+    align-items: center;
+    justify-content: flex-start;
     margin-top: 70px;
 }
 
@@ -616,27 +653,26 @@ header.sticky {
     color: var(--text-color);
     font-size: 0.9rem;
     font-weight: 600;
-    line-height: 1;  /* Remove espaçamento extra */
+    line-height: 1;
     white-space: nowrap;
-    margin-right: 15px; /* Espaço após o btn */
-    padding: 12px 20px;
+    margin-right: 15px;
 }
 
 /* Botão "Veja meu trabalho" (btn2) */
 .btn2 {
     display: inline-flex;
-    align-items: center;     /* Centraliza ícone + texto VERTICALMENTE */
-    justify-content: center; /* Centraliza HORIZONTALMENTE (opcional) */
+    align-items: center;
+    justify-content: center;
     gap: 15px;
     color: var(--text-color);
     font-size: 0.9rem;
     font-weight: 600;
-    padding: 5px 0;          /* Adiciona padding vertical sutil */
-    line-height: 1;          /* Remove espaçamento extra do texto */
-    height: 55px;            /* Altura fixa para alinhar com o .btn */
-    vertical-align: middle;  /* Garante alinhamento com elementos inline */
-    margin: 0; 
-    margin-left: 0; /* Remove margens conflitantes */
+    padding: 5px 0;
+    line-height: 1;
+    height: 55px;
+    vertical-align: middle;
+    margin: 0;
+    margin-left: 0;
     padding: 5px 10px;
 }
 
@@ -649,26 +685,74 @@ header.sticky {
     justify-content: center;
     font-size: 35px;
     border-radius: 50%;
-    margin: 0;     
+    margin: 0;
     background-color: var(--main-color);
     color: var(--text-color);
-    
 }
+
 @media (max-width: 800px) {
     .socials {
-        margin-top: 3em; /* Reduz o espaçamento superior (era 5em) */
-        justify-content: center; /* Centraliza os ícones */
-        gap: 10px; /* Espaçamento entre os ícones (substitui margin-right) */
-        padding: 0 15px; /* Adiciona padding nas laterais se necessário */
+        margin-top: 3em;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 15px;
     }
 
     .btn-socials {
-        margin-right: 0 !important; /* Remove margens individuais */
+        margin-right: 0 !important;
     }
 
     .btn-socials span i {
-        width: 45px !important; /* Reduz tamanho dos ícones */
+        width: 45px !important;
         height: 45px !important;
         font-size: 25px !important;
     }
+}
+
+/* Timeline (se não for usada, pode ser removida) */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3rem 0;
+}
+
+.container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    top: 32px;
+    margin: 2rem;
+}
+
+.text-box {
+    padding: 20px 20px;
+    background: var(--bg-color);
+    border-radius: 10px;
+    color: var(--text-color);
+    width: 60vw;
+}
+
+.text-box h5 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.text-box small {
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.text-box p {
+    letter-spacing: 1px;
+    line-height: 1.8;
+    font-size: var(--p-font);
+    margin: 1rem 0;
 }
