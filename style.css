@@ -382,6 +382,14 @@ section {
     /* right: 400px; Removido: esta posição fixa pode quebrar o layout */
     margin-top: -80px; /* Ajuste para compensar o 'top' de #ex2/ex3, se necessário */
 }
+@media (max-width:600px){
+     .experience{
+    margin: 0;
+    padding: 0;
+    top: -120px; /* Ajuste a posição se necessário, pode ser problematico */
+    font-size: 40px;
+     }
+}
 
 /* Estilos para a imagem dentro do .boxd */
 #imgtaskp {
@@ -1513,22 +1521,4 @@ section {
     line-height: 1.8;
     font-size: var(--p-font);
     margin: 1rem 0;
-}
- 
-@media (max-width: 760px){
-  .boxd{
-    position: relative;
-    overflow: hidden;
-    border-radius: 0.75rem;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    margin: 50px;
-    background-color: #9b9b9b;
-    width: 250px;
-    height: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* right: 400px; Removido: esta posição fixa pode quebrar o layout */
-    margin-top: -80px; /* Ajuste para compensar o 'top' de #ex2/ex3, se necessário */
-  }
 }
