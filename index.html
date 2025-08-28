@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Rafael Pereira</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,8 @@
         <ul class="navlist">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">Sobre Mim</a></li>
-            </ul>
+            <li><a href="#portfolio">Projetos</a></li>
+        </ul>
 
         <div class="bx bx-menu" id="menu-icon"></div>
     </header>
@@ -37,8 +38,10 @@
                 </div>
                 <h1>Rafael Pereira</h1>
                 <h3>Software<span> Developer</span></h3>
-                <a href="https://api.whatsapp.com/send/?phone=?" target="_blank" class="btn">Diga Olá</a>
-                <a href="#experience" class="btn2"><span><i class="bx bx-play"></i></span>Veja meu trabalho</a>
+                <div class="button">
+                    <a href="https://api.whatsapp.com/send/?phone=?" target="_blank" class="btn">Diga Olá</a>
+                    <a href="#portfolio" class="btn2"><span><i class="bx bx-play"></i></span>Veja meu trabalho</a>
+                </div>
             </div>
         </div>
     </section>
@@ -52,10 +55,9 @@
             <h2>Sobre <span>Mim</span></h2>
             <h4>Apaixonado por tecnologia e programação.</h4>
             <p>&bull; Cursando Análise e Desenvolvimento de Sistemas (CEUNSP).</p>
-            <p id="conhecimento">Conhecimentos em:</p>
-            <p>&bull; <a>Front-end: HTML, CSS, JavaScript</a></p>
-            <p>&bull; Back-end: Python.</p>
-            <p>&bull; Cybersegurança (estudando ativamente)</p>
+            <p>&bull; Conhecimentos em: Front-end (HTML, CSS, JavaScript)</p>
+            <p> &bull;Back-end (Python)</p>
+            <p> &bull;Cybersegurança (estudando ativamente)</p>
             <div class="socials">
                 <a href="https://www.linkedin.com/in/rafael-pereira-6a8b602a4/" target="_blank" class="btn-socials"><span><i class="bx bxl-linkedin"></i></span></a>
                 <a href="https://github.com/rafaelp23" target="_blank" class="btn-socials"><span><i class="bx bxl-github"></i></span></a>
@@ -64,19 +66,26 @@
         </div>
     </section>
 
-    <section class="experience" id="experience">
+    <section class="portfolio" id="portfolio">
         <div class="main-text">
-            <h2 id="ex2">Experiências Projetos</h2>
-            <h3 id="ex3">TASKPLANER</h3>
+            <p>Projetos</p>
+            <h2>Experiências <span>Projetos</span></h2>
+        </div>
 
-            <div id="boxd" class="boxd">
-                <img id="imgtaskp" src="img/taskplaner.png" alt="Task Planner Image">
-                <div id="taskpOverlay" class="image-overlay">
-                    <p style="font-size: 13px;"> Desenvolvi uma plataforma web voltada para universitários, que organiza tarefas, provas e
-                        trabalhos acadêmicos. Com interface intuitiva e recursos focados em produtividade, o sistema
-                        facilita o planejamento e o acompanhamento das demandas ao longo do curso.</p>
+        <div class="portfolio-content">
+            <div class="row">
+                <img src="img/taskplaner.png" alt="Task Planner Image">
+                <div class="layer">
+                    <h5>TASKPLANER</h5>
+                    <p>Desenvolvi uma plataforma web voltada para universitários, que organiza tarefas, provas e trabalhos acadêmicos. Com interface intuitiva e recursos focados em produtividade, o sistema facilita o planejamento e o acompanhamento das demandas ao longo do curso.</p>
                 </div>
             </div>
+        </div>
+    </section>
+    
+    <section class="end">
+        <div class="last-text">
+            <p>Copyright &#169; 2025 por Rafael Pereira. Todos os direitos reservados.</p>
         </div>
     </section>
 
@@ -84,7 +93,6 @@
         <a href="#home" aria-label="Voltar ao topo"><i class="bx bx-up-arrow-alt"></i></a>
     </div>
 
-    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
-
 </html>
