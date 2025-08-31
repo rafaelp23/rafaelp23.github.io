@@ -400,7 +400,7 @@ section {
 
 .last-text p {
     color: var(--second-color);
-    font-size: var(--p-font)
+    font-size: 12px;
 }
 
 /* Botão Voltar ao Topo */
