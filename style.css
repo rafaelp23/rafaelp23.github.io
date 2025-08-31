@@ -350,10 +350,12 @@ section {
     transition: height 0.5s;
 }
 
-.layer h5 {
+.layer a {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 15px;
+    color: #f8f8f8;
+    text-decoration: underline;
 }
 
 .layer p {
