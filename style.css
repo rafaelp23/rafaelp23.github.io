@@ -398,8 +398,9 @@ section {
     background-color: var(--bg-color);
 }
 
-.last-text p {
+.last-text a {
     color: var(--second-color);
+    font-size: var(--p-font);
     font-size: 12px;
 }
 
