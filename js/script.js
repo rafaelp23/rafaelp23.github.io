@@ -9,7 +9,7 @@ let navlist = document.querySelector('.navlist');
 
 menu.onclick = () => {
     navlist.classList.toggle('open');
-    if(window.scrollY < 90){
+    if(window.scrollY < 120){   //mudei aqui
         header.classList.toggle ("sticky");
     }
     
