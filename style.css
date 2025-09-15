@@ -70,12 +70,31 @@ header.sticky {
     font-size: 35px;
     font-weight: 700;
     letter-spacing: 1px;
+    display: flex;
+    position: relative;
+    right: 200px;
 }
+
 
 span {
     color: var(--main-color);
 }
 
+
+@media (max-width:500px){
+.logo {
+    color: var(--text-color);
+    font-size: 35px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    position: relative;
+    right: -5px;
+
+}
+
+
+}
 .navlist {
     display: flex;
 }
@@ -311,9 +330,28 @@ section {
     align-items: center;
     gap: 2.5rem;
     margin-top: 5rem;
+    width: 500px;
+    margin: 300px;
+ 
+}
+
+@media (max-width:500px) {
+    .portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+    gap: 2.5rem;
+    margin-top: 5rem;
+    right: 300px;
+    position: relative;
+    width: 360px;
+    
+}
 }
 
 .row {
+    display: flex;
+    top: -100px;
+    right: 290px;
     position: relative;
     overflow: hidden;
     border-radius: 10px;
@@ -321,6 +359,19 @@ section {
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Mantido do seu código */
 }
 
+@media (max-width:500px){
+    .row {
+    display: flex;
+    top: 5px;
+    right: 0px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Mantido do seu código */
+}
+}
+/*img*/
 .row img {
     max-width: 350px;
     min-width: 100%;
@@ -349,12 +400,15 @@ section {
     padding: 0 40px;
     transition: height 0.5s;
 }
+/*img*/
+
+
 
 .layer a {
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 15px;
-    color: #f8f8f8;
+    color: aliceblue;
     text-decoration: underline;
 }
 
@@ -401,6 +455,7 @@ section {
 .last-text p {
     color: var(--second-color);
     font-size: var(--p-font);
+    font-size: 12px;
 }
 
 /* Botão Voltar ao Topo */
