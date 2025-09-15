@@ -458,7 +458,8 @@ section {
     font-size: 12px;
 }
 
-/* Botão Voltar ao Topo */
+/*Manutençao*/
+/* Botão Voltar ao Topo 
 #top {
     position: fixed;
     bottom: 0;
@@ -473,6 +474,41 @@ section {
 #top.show-top {
     display: block;
 }
+      /* --- Seção de Rodapé (End) e Voltar ao Topo --- */
+.end {
+    /* ... seu código do .end continua igual ... */
+}
+
+/* --- Botão Voltar ao Topo (CORRIGIDO) --- */
+#top {
+    position: fixed;
+    bottom: 2rem; /* Usando bottom e right para melhor controle */
+    right: 2rem;
+    z-index: 1000; /* Garante que ele fique sobre outros elementos */
+
+    /* O botão começa ESCONDIDO por padrão */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(100%); /* Efeito para ele "subir" ao aparecer */
+    transition: all 0.4s ease;
+}
+
+/* Classe que o JavaScript adiciona para MOSTRAR o botão */
+#top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#top i {
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 28px;
+    color: var(--text-color);
+    background: var(--main-color);
+    cursor: pointer; /* Adicionado para o mouse virar uma "mãozinha" */
+}
+/*Manutençao*/
 
 #top i {
     padding: 10px;
