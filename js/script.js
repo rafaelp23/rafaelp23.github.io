@@ -1,32 +1,15 @@
-const header = document.querySelector("header");
-
-window.addEventListener ("scroll", function() {
-    header.classList.toggle ("sticky", window.scrollY > 40)
-});
-
-let menu = document.querySelector('#menu-icon');
-let navlist = document.querySelector('.navlist');
-
-menu.onclick = () => {
-    navlist.classList.toggle('open');
-    if(window.scrollY < 120){   //mudei aqui
-        header.classList.toggle ("sticky");
+function abrirModal() {
+      document.getElementById("modalSobre").style.display = "flex";
     }
-    
-}
 
-window.onscroll = () => {
-    menu.classList.remove('bx-x');
-    navlist.classList.remove('open');
-}
+    function fecharModal() {
+      document.getElementById("modalSobre").style.display = "none";
+    }
 
-const topo = document.getElementById("top");
-
-window.addEventListener("scroll", function() {
-    topo.classList.toggle ("show-top", window.scrollY > 140)
-    topo.classList.toggle ("hide-top", window.scrollY < 140);
-});
-
-window.onload = () => {
-    topo.classList.toggle ("hide-top");
-}
+    // Fechar se clicar fora da janela
+    window.onclick = function(event) {
+      var modal = document.getElementById("modalSobre");
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
