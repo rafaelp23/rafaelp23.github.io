@@ -11,15 +11,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
   <link rel="shortcut icon" href="img/letter-r_11982336.png" type="image/x-icon">
   <link rel="stylesheet" href="css/style.css">
-
   
 </head>
 
 <body>
-
+   
+    <!--Tela Principal- INICIO-->
   <div class="linktree-container">
     
-    <img src="img/EU_LIDK.jpg" alt="Rafael Pereira" class="profile-img">
+    <img src="EU_LIDK.jpg" alt="Rafael Pereira" class="profile-img">
     <h1>Rafael Pereira</h1>
     <p class="bio">
       > Developer<br>
@@ -32,7 +32,7 @@
         <i class="fas fa-terminal"></i> Sobre Mim
       </a>
 
-      <a href="https://github.com/rafaelp23" class="link-btn" target="_blank">
+      <a  onclick="abrirProjetos()"  class="link-btn" target="_blank">
         <i class="fab fa-github"></i> GitHub / Projetos
       </a>
 
@@ -40,8 +40,12 @@
         <i class="fab fa-linkedin"></i> LinkedIn
       </a>
 
-      <a href="mailto:rafaelpereirasilva402@gmail.com" class="link-btn">
+      <a onclick=" abrirContatos()" class="link-btn">
         <i class="fas fa-envelope-open-text"></i> Contato / Email
+      </a>
+      
+      <a onclick="abrirContratar()" class="link-btn">
+       <i class="fas fa-handshake"></i> Contratar
       </a>
 
     </div>
@@ -51,7 +55,10 @@
     </div>
 
   </div>
+        <!--Tela Principal- INICIO-->
 
+
+        <!--CARD-SOBRE-MIM-->
   <div id="modalSobre" class="modal-overlay">
     <div class="terminal-window">
       
@@ -68,7 +75,6 @@
         </p>
         <ul>
           <li><span class="highlight">></span> Pentest & Ethical Hacking</li>
-          <!--<li><span class="highlight">></span> Python & Scripting</li>-->
           <li><span class="highlight">></span> Desenvolvimento Web</li>
         </ul>
         <p>
@@ -80,14 +86,173 @@
 
     </div>
   </div>
+  
+        <!--CARD-SOBRE-MIM FIM-->
+
+
+        <!--PROJETOS-->
+  <div id="modalProjetos" class="modal-overlay">
+    <div class="terminal-window">
+      
+      <div class="terminal-header">
+        <span class="terminal-title">user@rafael:~/projects</span>
+        <span class="close-btn" onclick="fecharProjetos()"><i class="fas fa-times"></i></span>
+      </div>
+
+      <div class="terminal-body">
+        <span class="command">$ ./list_all_projects.sh --verbose</span>
+        
+        <div class="projects-list" >
+
+          <div class="project-card">
+            <div class="card-header">
+              <span class="p-id">ID: 001</span>
+              <span class="p-status">[ONLINE]</span>
+            </div>
+            <h3 class="p-title">TaskPlanner Universitário</h3>
+            <p class="p-desc">Sistema de agenda online para controle de carga de trabalho acadêmico e monitoramento de prazos em tempo real.</p>
+            <div class="p-techs">
+              <span>#HTML5</span> <span>#CSS3</span> <span>#JS</span>
+            </div>
+            <a  target="_blank"  href="https://rafaelp23.github.io/Taskplaner/"  class="p-link">>> ACESSAR </a>
+            <a  target="_blank"  href="https://github.com/rafaelp23/Taskplaner" class="p-link"> GITHUB </a>
+
+          </div>
+
+          <div class="project-card">
+            <div class="card-header">
+              <span class="p-id">ID: 002</span>
+              <span class="p-status">[ONLINE]</span>
+            </div>
+            <h3 class="p-title">Dashboard IoT</h3>
+            <p class="p-desc">Uma interface de dashboard responsiva para monitoramento de sensores IoT, com um sistema de alertas visuais de 3 níveis.</p>
+            <div class="p-techs">
+              <span>#HTML5</span> <span>#CSS3</span> <span>#JS</span> <span>#API</span> <span>#PHP7.4+</span> <span>#JSON</span>
+            </div>
+            <a target="_blank" href="https://rafaelp23.github.io/Dashboard/" class="p-link">>> ACESSAR </a>
+            <a  target="_blank"  href="https://github.com/rafaelp23/Dashboard" class="p-link"> GITHUB </a>
+          </div>
+
+          <span class="command blink-cursor">$ _</span>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+           <!--PROJETOS FIM-->
+
+           <!--TESTANDO EMAIL/CONTATO INICIO-->
+
+
+   
+  <div id="modalContatos" class="modal-overlay">
+    <div class="terminal-window">
+      
+      <div class="terminal-header">
+        <span class="terminal-title">user@rafael:~/contacts</span>
+        <span class="close-btn" onclick="fecharContatos()"><i class="fas fa-times"></i></span>
+      </div>
+
+      <div class="terminal-body">
+        <span class="command">$ ./list.all.contacts.sh --verbose</span>
+        
+        <div class="projects-list" >
+
+          <div class="contato">
+
+          <nav class="lista-contatos">
+
+           <ul>
+               <li>
+                   <a id="email" >
+                     <i class="far fa-envelope"></i> rafaelpereirasilva402@gmail.com
+                   </a>
+               </li>
+           </ul>
+
+
+           <ul>
+              <li>
+                  <a >
+                     <i class="fab fa-whatsapp"></i> (15) 997238152
+                  </a>
+              </li>
+           </ul>
+
+          </nav>
+
+          </div>
+  
+
+          <span class="command blink-cursor">$ _</span>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+           <!--TESTANDO EMAIL/CONTATO FIM-->
+
+           <!--CONTRATAR-->
+  <div id="modalContratar" class="modal-overlay">
+    <div class="terminal-window">
+      
+      <div class="terminal-header">
+        <span class="terminal-title">user@rafael:~/hire-me</span>
+        <span class="close-btn" onclick="fecharContratar()"><i class="fas fa-times"></i></span>
+      </div>
+
+      <div class="terminal-body">
+        <span class="command">$ ./send_proposal.sh</span>
+
+
+<form id="form-contratar" style="margin-top: 15px;">
+  <div class="input-group">
+    <label>> Nome / Empresa:</label>
+    <input type="text" id="nome" required placeholder="Digite quem é você..." autocomplete="off" maxlength="50">
+  </div>
+  
+  <div class="input-group">
+    <label>> Seu Email:</label>
+    <input type="email" id="email" required placeholder="email@contato.com" autocomplete="off" maxlength="50">
+  </div>
+  
+  <div class="input-group">
+    <label>> Mensagem:</label>
+    <textarea id="mensagem" rows="4" required placeholder="Como posso ajudar?" maxlength="500"></textarea>
+    
+    <div style="text-align: right; font-size: 10px; color: var(--cor-destaque); margin-top: 5px;">
+      <span id="contador-letras">0</span>/500 caracteres
+    </div>
+  </div>
+
+  <button type="submit" class="link-btn" style="margin-top: 20px; width: 100%;">
+    <i class="fas fa-paper-plane"></i> Enviar Proposta
+  </button>
+</form>
+
+      </div>
+    </div>
+  </div>
+             <!--CONTRATAR FIM-->
 
   <style>
     @keyframes blink { 0% { opacity: 0; } 50% { opacity: 1; } 100% { opacity: 0; } }
   </style>
 
-  <script src="js/script.js">
+ <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
-  </script>
+ <script type="text/javascript">
+   (function(){
+      emailjs.init("7oVSB1_dr1yUQnyP0");
+   })();
+ </script>
+
+  <script  type="module" src="js/script.js"></script>
 
 </body>
 </html>
