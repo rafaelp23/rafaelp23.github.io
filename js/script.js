@@ -178,3 +178,89 @@ if (formContratar) {
     }
   });
 }
+
+
+/* ================================================= */
+/* 5. SISTEMA DE RASTREAMENTO (COOKIES + SUPABASE)   */
+/* ================================================= */
+
+// A. Funções Auxiliares para lidar com Cookies
+function setCookie(nome, valor, dias) {
+    let expires = "";
+    if (dias) {
+        const date = new Date();
+        date.setTime(date.getTime() + (dias * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = nome + "=" + (valor || "") + expires + "; path=/";
+}
+
+function getCookie(nome) {
+    const nameEQ = nome + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+// B. Função para gerar um ID único simples (UUID v4 fake para navegador)
+function gerarIDUnico() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
+// C. Lógica Principal: Registrar o Acesso com Localização
+async function registrarAcesso() {
+    // Evita duplicidade: Se já registrou nesta sessão (aba aberta), não registra de novo
+    if (sessionStorage.getItem('acesso_registrado')) return;
+
+    let visitorId = getCookie('rafael_visitor_id');
+    let userName = getCookie('rafael_user_name'); 
+
+    if (!visitorId) {
+        visitorId = gerarIDUnico();
+        setCookie('rafael_visitor_id', visitorId, 365);
+    }
+
+    try {
+        // 1. Pega dados de Localização (API Gratuita)
+        const response = await fetch('https://ipapi.co/json/');
+        const dataGeo = await response.json();
+
+        // 2. Prepara os dados
+        const dadosAcesso = {
+            visitor_id: visitorId,
+            nome_identificado: userName || 'Anônimo',
+            user_agent: navigator.userAgent,
+            url_origem: document.referrer,
+            // Novos campos de localização
+            cidade: dataGeo.city || 'Desconhecida',
+            pais: dataGeo.country_name || 'Desconhecido',
+            ip: dataGeo.ip || 'Oculto'
+        };
+
+        // 3. Salva no Supabase
+        const { error } = await supabase
+            .from('acessos')
+            .insert([dadosAcesso]);
+            
+        if (error) throw error;
+
+        // Marca que já registrou nesta sessão para não lotar o banco com F5
+        sessionStorage.setItem('acesso_registrado', 'true');
+        console.log(`Acesso registrado: ${dadosAcesso.cidade}, ${dadosAcesso.pais}`);
+
+    } catch (err) {
+        console.warn('Erro silencioso no tracking:', err);
+    }
+    
+    if (userName) console.log(`Bem-vindo de volta, ${userName}!`);
+}
+
+// Executa
+registrarAcesso();
