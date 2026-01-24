@@ -161,6 +161,9 @@ if (formContratar) {
             .catch(err => console.warn("Aviso: Auto-reply falhou, mas admin recebeu.", err));
 
         // --- C. SUCESSO ---
+
+        setCookie('rafael_user_name', nome, 365);
+
         alert('Mensagem enviada com sucesso! Em breve entrarei em contato. 🚀');
         
         // Limpa tudo
@@ -178,7 +181,6 @@ if (formContratar) {
     }
   });
 }
-
 
 /* ================================================= */
 /* 5. SISTEMA DE RASTREAMENTO (COOKIES + SUPABASE)   */
