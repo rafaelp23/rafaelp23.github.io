@@ -15,11 +15,10 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 /* ================================================= */
 
 function fecharTodosModais() {
-  const modais = ["modalSobre", "modalProjetos", "modalContratar", "modalContatos"];
-  modais.forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.style.display = "none";
-  });
+  document.getElementById("modalSobre").style.display = "none";
+  document.getElementById("modalProjetos").style.display = "none";
+  document.getElementById("modalContratar").style.display = "none";
+  document.getElementById("modalContatos").style.display="none";
 }
 
 window.abrirModal = function() {
@@ -37,8 +36,10 @@ window.abrirProjetos = function() {
 window.fecharProjetos = function() {
   document.getElementById("modalProjetos").style.display = "none";
 }
+//TESTANDO PARTE DO EMAIL/CONTATO 
 
-// TESTANDO PARTE DO EMAIL/CONTATO 
+
+
 window.abrirContatos= function() {
   fecharTodosModais();
   document.getElementById("modalContatos").style.display = "flex";
@@ -46,6 +47,8 @@ window.abrirContatos= function() {
 window.fecharContatos = function() {
   document.getElementById("modalContatos").style.display = "none";
 }
+
+
 
 window.abrirContratar = function() {
   fecharTodosModais();
@@ -55,25 +58,17 @@ window.fecharContratar = function() {
   document.getElementById("modalContratar").style.display = "none";
 }
 
-// --- CORREÇÃO AQUI (Fechar ao clicar fora) ---
+// Fechar ao clicar fora
 window.onclick = function(event) {
   const modalSobre = document.getElementById("modalSobre");
-  const modalProjetos = document.getElementById("modalProjetos"); // Corrigido: nome da variável
-  const modalContatos = document.getElementById("modalContatos"); // Corrigido: nome mais claro
+  const modalTeste = document.getElementById("modalProjetos");
+  const modalTeste2 = document.getElementById("modalContatos");
   const modalContratar = document.getElementById("modalContratar");
 
-  if (event.target == modalSobre) {
-    modalSobre.style.display = "none";
-  }
-  if (event.target == modalProjetos) {
-    modalProjetos.style.display = "none"; 
-  }
-  if (event.target == modalContatos) {
-    modalContatos.style.display = "none";
-  }
-  if (event.target == modalContratar) {
-    modalContratar.style.display = "none";
-  }
+  if (event.target == modalSobre) modalSobre.style.display = "none";
+  if (event.target == modalProjetos) modalProjetos.style.display = "none";
+  if (event.target == modalTeste2) modalTeste2.style.display = "none";
+  if (event.target == modalContratar) modalContratar.style.display = "none";
 }
 
 /* ================================================= */
@@ -146,10 +141,10 @@ if (formContratar) {
         
         const serviceID = "service_u5entdh"; // Seu serviço atual
         
-        // 1. Template para VOCÊ (Admin)
+        // 1. Template para VOCÊ (Admin) - COLOQUE O ID NOVO ABAIXO
         const templateAdminID = "template_3yrddjr"; 
         
-        // 2. Template para o CLIENTE (Confirmação)
+        // 2. Template para o CLIENTE (Confirmação) - O antigo que já funcionava
         const templateClienteID = "template_xvxwgvh";
 
         const emailParams = {
@@ -166,6 +161,9 @@ if (formContratar) {
             .catch(err => console.warn("Aviso: Auto-reply falhou, mas admin recebeu.", err));
 
         // --- C. SUCESSO ---
+
+        setCookie('rafael_user_name', nome, 365);
+
         alert('Mensagem enviada com sucesso! Em breve entrarei em contato. 🚀');
         
         // Limpa tudo
@@ -183,7 +181,6 @@ if (formContratar) {
     }
   });
 }
-
 
 /* ================================================= */
 /* 5. SISTEMA DE RASTREAMENTO (COOKIES + SUPABASE)   */
